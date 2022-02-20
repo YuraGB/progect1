@@ -8,7 +8,7 @@ async function bootstrap() {
       AppModule,
   );
 
-  app.useStaticAssets(resolve('../p2f/my-app/build'));
-  await app.listen(3000);
+//  app.useStaticAssets(resolve('../p2f/my-app/build'));
+  await app.listen(5000);
 }
 bootstrap();
