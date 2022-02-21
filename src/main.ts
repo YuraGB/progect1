@@ -7,8 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
       AppModule,
   );
+  const port = process.env.Port || 3000;
 
 //  app.useStaticAssets(resolve('../p2f/my-app/build'));
-  await app.listen(5000);
+  await app.listen(port);
 }
 bootstrap();
