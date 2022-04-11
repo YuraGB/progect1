@@ -8,8 +8,7 @@ async function bootstrap() {
       AppModule,
   );
   const port = process.env.Port || 3000;
-
-//  app.useStaticAssets(resolve('../p2f/my-app/build'));
+  app.useStaticAssets(resolve('../progect1_2/build'));
   await app.listen(port);
 }
 bootstrap();

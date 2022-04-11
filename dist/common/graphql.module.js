@@ -6,23 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.GraphqlModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const auth_controller_1 = require("./auth/auth.controller");
-const user_module_1 = require("./user/user.module");
-const common_module_1 = require("./common/common.module");
-let AppModule = class AppModule {
+const graphql_1 = require("@nestjs/graphql");
+const apollo_1 = require("@nestjs/apollo");
+let GraphqlModule = class GraphqlModule {
 };
-AppModule = __decorate([
+GraphqlModule = __decorate([
     (0, common_1.Module)({
-        imports: [common_module_1.CommonModule, user_module_1.UserModule],
-        controllers: [app_controller_1.AppController, auth_controller_1.AuthController],
-        providers: [
-            app_service_1.AppService
+        imports: [
+            graphql_1.GraphQLModule.forRoot({
+                driver: apollo_1.ApolloDriver,
+                autoSchemaFile: './schema.gql',
+                debug: true,
+                playground: true,
+            }),
         ],
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], GraphqlModule);
+exports.GraphqlModule = GraphqlModule;
+//# sourceMappingURL=graphql.module.js.map

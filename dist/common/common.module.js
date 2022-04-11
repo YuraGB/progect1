@@ -6,23 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.CommonModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const auth_controller_1 = require("./auth/auth.controller");
-const user_module_1 = require("./user/user.module");
-const common_module_1 = require("./common/common.module");
-let AppModule = class AppModule {
+const graphql_module_1 = require("./graphql.module");
+const mongo_module_1 = require("./mongo.module");
+let CommonModule = class CommonModule {
 };
-AppModule = __decorate([
+CommonModule = __decorate([
     (0, common_1.Module)({
-        imports: [common_module_1.CommonModule, user_module_1.UserModule],
-        controllers: [app_controller_1.AppController, auth_controller_1.AuthController],
-        providers: [
-            app_service_1.AppService
-        ],
+        imports: [graphql_module_1.GraphqlModule, mongo_module_1.MongoModule],
+        exports: [graphql_module_1.GraphqlModule, mongo_module_1.MongoModule],
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], CommonModule);
+exports.CommonModule = CommonModule;
+//# sourceMappingURL=common.module.js.map
