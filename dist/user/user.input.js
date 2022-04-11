@@ -9,21 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthController = void 0;
-const common_1 = require("@nestjs/common");
-let AuthController = class AuthController {
-    root() {
-        return "Hello auth";
-    }
+exports.CreateUserInput = void 0;
+const graphql_1 = require("@nestjs/graphql");
+let CreateUserInput = class CreateUserInput {
 };
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "root", null);
-AuthController = __decorate([
-    (0, common_1.Controller)('auth')
-], AuthController);
-exports.AuthController = AuthController;
-//# sourceMappingURL=auth.controller.js.map
+    (0, graphql_1.Field)(() => String, { description: 'first name of the user' }),
+    __metadata("design:type", String)
+], CreateUserInput.prototype, "firstName", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { description: 'last name of the user' }),
+    __metadata("design:type", String)
+], CreateUserInput.prototype, "lastName", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { description: 'email of the user' }),
+    __metadata("design:type", String)
+], CreateUserInput.prototype, "email", void 0);
+CreateUserInput = __decorate([
+    (0, graphql_1.InputType)()
+], CreateUserInput);
+exports.CreateUserInput = CreateUserInput;
+//# sourceMappingURL=user.input.js.map

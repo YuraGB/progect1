@@ -9,21 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthController = void 0;
-const common_1 = require("@nestjs/common");
-let AuthController = class AuthController {
-    root() {
-        return "Hello auth";
-    }
+exports.UpdateUserInput = void 0;
+const user_input_1 = require("./user.input");
+const graphql_1 = require("@nestjs/graphql");
+let UpdateUserInput = class UpdateUserInput extends (0, graphql_1.PartialType)(user_input_1.CreateUserInput) {
 };
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "root", null);
-AuthController = __decorate([
-    (0, common_1.Controller)('auth')
-], AuthController);
-exports.AuthController = AuthController;
-//# sourceMappingURL=auth.controller.js.map
+    (0, graphql_1.Field)(() => String),
+    __metadata("design:type", String)
+], UpdateUserInput.prototype, "_id", void 0);
+UpdateUserInput = __decorate([
+    (0, graphql_1.InputType)()
+], UpdateUserInput);
+exports.UpdateUserInput = UpdateUserInput;
+//# sourceMappingURL=create-user.input.js.map

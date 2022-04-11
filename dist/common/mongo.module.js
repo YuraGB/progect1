@@ -6,23 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.MongoModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const auth_controller_1 = require("./auth/auth.controller");
-const user_module_1 = require("./user/user.module");
-const common_module_1 = require("./common/common.module");
-let AppModule = class AppModule {
+const mongoose_1 = require("@nestjs/mongoose");
+let MongoModule = class MongoModule {
 };
-AppModule = __decorate([
+MongoModule = __decorate([
     (0, common_1.Module)({
-        imports: [common_module_1.CommonModule, user_module_1.UserModule],
-        controllers: [app_controller_1.AppController, auth_controller_1.AuthController],
-        providers: [
-            app_service_1.AppService
+        imports: [
+            mongoose_1.MongooseModule.forRootAsync({
+                useFactory: async () => ({
+                    uri: 'mongodb+srv://yuhur:99999Qz@cluster0.h2sca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+                }),
+            }),
         ],
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], MongoModule);
+exports.MongoModule = MongoModule;
+//# sourceMappingURL=mongo.module.js.map
